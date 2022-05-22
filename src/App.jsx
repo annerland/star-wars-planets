@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Planets from './routes/planets'
+import Planets from './routes/spaceCenters'
 
 function App() {
   return (

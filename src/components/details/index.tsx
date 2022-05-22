@@ -10,15 +10,11 @@ const Details = (props) => {
           <img src={CloseIcon} />
         </div>
         <div className="content">
-          <h1>Wolf Valleys Space Center</h1>
-          <p className="space-description">
-            Wolf Valleys Space Center is the place to be if 
-            you like everything related to planets. 
-            I know it's a bit meta, but come see by yourself
-          </p>
+          <h1>{props.name}</h1>
+          <p className="space-description">{props.description}</p>
           <div className="flight-numbers">
             <p>Number of flights:</p>
-            <span>1596</span>
+            <span>{props.numberOfFlights}</span>
           </div>
 
           <div className="departures">
@@ -28,8 +24,8 @@ const Details = (props) => {
               <img src={PlanetIcon} />
 
               <div className="departures-description">
-                <p>To: Planet Alpha</p>
-                <span>15/10/2022 - 04:58pm</span>
+                <p>To: {props.departureName}</p>
+                <span>{props.date}</span>
               </div>
             </div>
           </div>

@@ -7,8 +7,8 @@ const Card = (props) => {
       <div onClick={props.onClick} className='card-container'>
         <img src={Planet} />
         <div className="content">
-          <p>Wolf Valleys Space Center</p>
-          <span>Number of flights: 1596</span>
+          <p>{props.name}</p>
+          <span>Number of flights: {props.numberOfFlights}</span>
         </div>
       </div>
     </CardContainer>

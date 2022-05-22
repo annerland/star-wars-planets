@@ -12,14 +12,14 @@ import {
   useQuery,
   gql
 } from "@apollo/client";
-import { setContext } from '@apollo/client/link/context';
 
 const client = new ApolloClient({
   uri: "http://localhost:3000/graphql",
+  headers: {
+    "Authorization": "Bearer API_KEY"
+  },
   cache: new InMemoryCache()
 })
-
-console.log(client)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
