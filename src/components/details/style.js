@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const DetailsContainer = styled.div`
   @keyframes slideout {
@@ -13,6 +13,7 @@ export const DetailsContainer = styled.div`
 
   .details-container {
     position: absolute;
+    overflow: auto;
     right: 0;
     top: 0;
     height: 90%;
@@ -63,38 +64,6 @@ export const DetailsContainer = styled.div`
 
       span {
         font-weight: 600;
-      }
-    }
-
-    .departures {
-      .departures-title {
-        font-weight: 600;
-        text-transform: uppercase;
-        color: ${(props) => props.theme.grayColor};
-      }
-
-      .departures-content {
-        display: flex;
-        align-items: center;
-
-        img {
-          max-height: 25px;
-          display: flex;
-          margin: 0 16px;
-        }
-
-        .departures-description {
-          p {
-            margin: 0;
-            font-weight: 600;
-            color: ${(props) => props.theme.primaryColor};
-          }
-
-          span {
-            font-size: 12px;
-            color: ${(props) => props.theme.grayColor};
-          }
-        }
       }
     }
   }

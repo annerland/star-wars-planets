@@ -1,8 +1,19 @@
+import React from "react"
 import { DetailsContainer } from "./style"
-import PlanetIcon from "../../assets/planet-loader.svg"
 import CloseIcon from "../../assets/close-icon.svg"
+import Departures from "../departures"
+import { DeparturesTitle } from "../departures/style"
+import { useQuery } from "@apollo/client"
+import { GET_SPACECENTERS } from "../../routes/spaceCenters/graphql"
 
 const Details = (props) => {
+  const { loading, error, data } = useQuery(GET_SPACECENTERS, {
+    variables: { page: 1, pageSize: 10 }
+  })
+
+  if (loading) return "Loading..."
+  if (error) return `Error! ${error.message}`
+
   return (
     <DetailsContainer>
       {props.show ? <div className="details-container">
@@ -17,18 +28,10 @@ const Details = (props) => {
             <span>{props.numberOfFlights}</span>
           </div>
 
-          <div className="departures">
-            <p className="departures-title">Departures</p>
-            
-            <div className="departures-content">
-              <img src={PlanetIcon} />
-
-              <div className="departures-description">
-                <p>To: {props.departureName}</p>
-                <span>{props.date}</span>
-              </div>
-            </div>
-          </div>
+        <DeparturesTitle>Departures</DeparturesTitle>
+          {data?.spaceCenters?.nodes?.map(spaceCenter => 
+            <Departures spaceCenterId={spaceCenter.id} />
+          )}
         </div>
       </div> : null}
     </DetailsContainer>
