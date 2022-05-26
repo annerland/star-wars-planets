@@ -8,11 +8,11 @@ export const CardContainer = styled.div`
   transition: 0.3s;
   cursor: pointer;
   margin-bottom: 32px;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   
 
   &:hover {
-    border: 1px solid ${(props) => props.theme.primaryColor};
+    border: 2px solid ${(props) => props.theme.primaryColor};
   }
 `
 

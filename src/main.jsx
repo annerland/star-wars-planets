@@ -7,11 +7,8 @@ import theme from './styles/theme'
 import {
   ApolloClient,
   InMemoryCache,
-  createHttpLink,
-  ApolloProvider,
-  useQuery,
-  gql
-} from "@apollo/client";
+  ApolloProvider
+} from "@apollo/client"
 
 const client = new ApolloClient({
   uri: "http://localhost:3000/graphql",

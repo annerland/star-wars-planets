@@ -1,10 +1,11 @@
-import { useQuery } from "@apollo/client";
-import { GET_FLIGHTS } from "../../routes/spaceCenters/graphql";
+import { useQuery } from "@apollo/client"
+import { GET_FLIGHTS } from "../../routes/spaceCenters/graphql"
+import PropTypes from 'prop-types'
 
-export function NumberOfFlights({ spaceCenterId }) {
+export function NumberOfFlights(props) {
   const { data: flightsData } = useQuery(GET_FLIGHTS, {
-    skip: !spaceCenterId,
-    variables: { from: spaceCenterId, pageSize: 100, page: 1 }
+    skip: !props.spaceCenterId,
+    variables: { from: props.spaceCenterId, pageSize: 100, page: 1 }
   })
 
   return (
@@ -12,4 +13,8 @@ export function NumberOfFlights({ spaceCenterId }) {
       {flightsData?.flights?.nodes?.length}
     </>
   )
+}
+
+NumberOfFlights.propTypes = {
+  spaceCenterId: PropTypes.string,
 }

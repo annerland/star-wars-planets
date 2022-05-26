@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const DeparturesTitle = styled.p`
   font-weight: 600;
   text-transform: uppercase;
+  margin-top: 36px;
   color: ${(props) => props.theme.grayColor};
 `
 

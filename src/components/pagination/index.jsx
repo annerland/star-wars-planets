@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import Classnames from 'classnames'
+import { PaginationStyle, PaginationItem, PaginationIcon } from './style'
 import Right from '../../assets/right.svg'
 import Left from '../../assets/left.svg'
-
-import { PaginationStyle } from './style'
+import PropTypes from 'prop-types'
 
 const Pagination = (props) => {
   const [pages, setPages] = useState([])
@@ -18,7 +17,7 @@ const Pagination = (props) => {
       return data
     } else {
       for (let i = 1; i <= props.total; i++) {
-        data.push({ page: i, class: [i === props.current ? 'active' : ''] })
+        data.push({ page: i })
       }
 
       return data
@@ -50,17 +49,26 @@ const Pagination = (props) => {
 
   return (
     <PaginationStyle>
-      <div className='pagination'>
-        <img src={Left} onClick={handleLeft} />
+        <PaginationIcon src={Left} onClick={handleLeft} />
         {pages.map((elm, i) =>
-          <div onClick={() => handleAction(elm)} key={i} className={Classnames('item', elm.class)}>
+          <PaginationItem onClick={() => handleAction(elm)} key={i}>
             {elm.page}
-          </div>
+          </PaginationItem>
         )}
-        <img src={Right} onClick={handleRight} />
-      </div>
+        <PaginationIcon src={Right} onClick={handleRight} />
     </PaginationStyle>
   )
 }
 
 export default Pagination
+
+Pagination.propTypes = {
+  total: PropTypes.number,
+  current: PropTypes.number,
+  onChange: PropTypes.func
+}
+
+Pagination.defaultProps = {
+  total: 1,
+  current: 1
+}

@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 40px 152px;
     background: ${(props) => props.theme.backgroundColor};
     font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 `;
  
